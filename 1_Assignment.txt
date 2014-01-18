@@ -1,0 +1,39 @@
+Given records of the following type:
+<Name>:<course num1>,<marks1>:<course num2>,<marks2>:<course num3>,<marks3>
+Example:
+Rahul:cs100,90:cs110,92:cs120,95
+
+Write a program to convert this to a network representation that is as follows:
+1 byte: <num courses>
+1 byte: <name len>
+<name>
+1 byte: <course1 len>
+<course1 name>
+1 byte: <course2 len>
+<course2 name>
+<other course information>
+7 bits: <marks1>
+7 bits: <marks2> (this will use the msb from the previous marks and so on)
+<other course marks>
+
+Write another program to convert this to the following representation:
+<?xml version="1.0"?>
+<student-record>
+<student>
+<name>Rahul</name>
+<course name="cs100" marks="90"/>
+<course name="cs110" marks="92"/>
+<course name="cs120" marks="95"/>
+</student>
+<!--
+Other student records
+-->
+<student>
+</student>
+</student-record>
+
+
+1) Formatting in XML - no \n or spaces or any other formatting chars to make it human readable. Just plain XML
+2) For marks < 10, these are written to the text file as 5 and not as 05
+
+Deadline is 22nd January 11:59 P.M.
